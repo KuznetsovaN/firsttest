@@ -1,3 +1,5 @@
+package test;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -47,15 +49,15 @@ public class task1 {
         driver.findElement(By.xpath("(//A[@role='button'])[11]//DIV[@class='kitt-top-menu__icon-img']")).click();
 
 //3. Выбрать – Перейти в каталог
-        driver.findElement(By.xpath("//A[@class='kitt-top-menu__link kitt-top-menu__link_second'][text()='Перейти в каталог']/self::A")).click();
+        driver.findElement(By.xpath("//A[@class='kitt-top-menu__link kitt-top-menu__link_second'][text()='Перейти в каталог']")).click();
 //4. Скролим до    Страхование для путешественников
         // This  will scroll page 400 pixel vertical
         ((JavascriptExecutor)driver).executeScript("scroll(0,400)");
 //5.Нажать на - Страхование для путешественников
-        driver.findElement(By.xpath("//H3[@class='uc-full__header'][text()='Страхование для путешественников']/self::H3"));
+        driver.findElement(By.xpath("//H3[@class='uc-full__header'][text()='Страхование для путешественников']"));
         Thread.sleep(5000);
 
-        driver.findElement(By.xpath("//H3[@class='uc-full__header'][text()='Страхование для путешественников']/self::H3")).click();
+        driver.findElement(By.xpath("//H3[@class='uc-full__header'][text()='Страхование для путешественников']")).click();
 //6. Проверить наличие на странице заголовка – Страхование путешественников
         Thread.sleep(5000);
         WebElement TravellersInsuranceBlock =driver.findElement(By.xpath("//H1[@class='kitt-heading  page-teaser-dict__header kitt-heading_size_l'][text()='Страхование путешественников']/self::H1"));
@@ -71,7 +73,7 @@ public class task1 {
 // 8.На вкладке – Выбор полиса  выбрать сумму страховой защиты – Минимальная  -- Уже минимальна, не кликабельно
 
         //9. Нажать оформить
-        driver.findElement(By.xpath("/html/body/app/ng-component/div/div/div/app-setup-product/div/form/div/div[1]/div/button")).click();
+        driver.findElement(By.xpath("//BUTTON[@class='btn btn-primary btn-large'][text()='Оформить']")).click();
 
         Thread.sleep(5000);
 
@@ -89,9 +91,9 @@ public class task1 {
 
         //Застрахованные находим на форме
 
-        WebElement lastNameElement = driver.findElement(By.xpath("//INPUT[@id='surname_vzr_ins_0']/self::INPUT"));
-        WebElement firstNameElement = driver.findElement(By.xpath("//INPUT[@id='name_vzr_ins_0']/self::INPUT"));
-        WebElement birthDateElement = driver.findElement(By.xpath("//INPUT[@id='birthDate_vzr_ins_0']/self::INPUT"));
+        WebElement lastNameElement = driver.findElement(By.xpath("//INPUT[@id='surname_vzr_ins_0']"));
+        WebElement firstNameElement = driver.findElement(By.xpath("//INPUT[@id='name_vzr_ins_0']"));
+        WebElement birthDateElement = driver.findElement(By.xpath("//INPUT[@id='birthDate_vzr_ins_0']"));
 
         //Застрахованные заполняем
         lastNameElement.sendKeys(lastName);
