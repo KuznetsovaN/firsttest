@@ -21,7 +21,7 @@ public class Task3 extends BaseStep {
     public void task3selenuim(){
 
         //Переход к вкладке Застраховать себя и имущество-выбор страхования путешественников
-        mainStep.selectSection("Застраховать себя  и имущество");
+        mainStep.selectSection("Страхование");
         mainStep.waitElement(mainStep.getTravelInsuranceElement("Страхование путешественников"));
         mainStep.travelInsurance("Страхование путешественников");
 

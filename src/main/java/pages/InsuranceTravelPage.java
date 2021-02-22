@@ -23,8 +23,8 @@ public class InsuranceTravelPage {
         }
     }
     public void checkSP(){
-        assertEquals("Страхование путешественников",
-                driver.findElement(By.xpath("//div[@class='sbrf-rich-outer']//h1")).getText());
+        assertEquals("Страхование для путешественников",
+                driver.findElement(By.xpath("//h3[contains(text(), 'Страхование для путешественников')]")).getText());
 
     }
 

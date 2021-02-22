@@ -18,7 +18,11 @@ public class MainPage {
     @FindBy(xpath = "//div[contains(@class,'bp-area header-container')]")
     WebElement menu;
 
+    @FindBy(xpath = "//*[contains(@class, 'kitt-top-menu__list')]")
+    WebElement mainMenu;
 
+    @FindBy(xpath = "//li/*[(text()='Страхование')]/..//ul")
+    WebElement insuranceMenu;
 
     public MainPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -30,16 +34,16 @@ public class MainPage {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public void selectSection (String name) {
-        menu.findElement(By.xpath(".//a[@aria-label='Раздел " + name +"']")).click();
+    public void selectMainMenu(String name) {
+        mainMenu.findElement(By.xpath(".//*[contains(text(), '" + name + "')]//span")).click();
     }
 
-    public void travelInsurance (String name) {
-        menu.findElement(By.xpath(".//a[contains(text(),'" + name + "')]")).click();
+    public void selectInsuranceMenu(String name) {
+        insuranceMenu.findElement(By.xpath(".//*[contains(text(),'" + name + "')]")).click();
     }
 
     public WebElement getTravelInsuranceElement (String name) {
-        return menu.findElement(By.xpath(".//a[contains(text(),'" + name + "')]"));
+        return insuranceMenu.findElement(By.xpath(".//*[contains(text(),'" + name + "')]"));
     }
 
 

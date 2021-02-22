@@ -12,12 +12,12 @@ public class MainStep {
 
     @Step("Выбор вкладки страхования на основной странице")
     public void selectSection (String name) {
-        new MainPage(BaseStep.getDriver()).selectSection(name);
+        new MainPage(BaseStep.getDriver()).selectMainMenu(name);
     }
 
     @Step ("Выбор вкладкии страхования пушешественников ")
     public void travelInsurance (String name) {
-        new MainPage(BaseStep.getDriver()).travelInsurance(name);
+        new MainPage(BaseStep.getDriver()).selectInsuranceMenu(name);
     }
 
    @Step ("Получения страхования пушешественников")

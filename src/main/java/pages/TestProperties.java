@@ -10,6 +10,7 @@ import java.util.Properties;
 //Загрузка данных из Resource Bundle environment.properties
 
 public class TestProperties {
+
     private final Properties properties = new Properties();
 
     private static TestProperties INSTANCE = null;
@@ -22,7 +23,6 @@ public class TestProperties {
             e.printStackTrace();
         }
     }
-
     public static TestProperties getInstance() {
         if (INSTANCE == null){
             INSTANCE = new TestProperties();
