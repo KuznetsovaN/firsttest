@@ -1,7 +1,4 @@
 package test;//Задание 3
-//     К автотесту, разработанному в предыдущих заданиях добавить возможность формирования allure отчета
-
-// Author: Boos Gleb
 
 import steps.BaseStep;
 import steps.MainStep;
