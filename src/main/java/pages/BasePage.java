@@ -4,7 +4,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import util.TestProperties;
+
 
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;

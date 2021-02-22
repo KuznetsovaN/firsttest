@@ -1,79 +1,53 @@
+//Страница 3: Страница оформления заявки
+
 package pages;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static java.lang.Thread.*;
 import static org.junit.Assert.assertEquals;
 
 
 public class RequestPage {
     WebDriver driver;
 
-
-    public void insuranceSum(String value) {
-        firstPage.findElement(By.xpath("//h3[contains(text(),'"
-                + value + "')]")).click();
-    }
-
-
-    public void issueButton(String buttonName) {
-        WebDriverWait wait = new WebDriverWait(driver, 5, 1000);
-        wait.until(ExpectedConditions.elementToBeClickable(
-                By.xpath("//button[contains(text(),'" + buttonName + "')]"))).click();
-    }
-
     // Инициализация кнопок и параметров ввода
     @FindBy(xpath = "//section[@class='b-form-section']//div[contains(@class,'b-form-box-block')]")
     WebElement minS;
-    @FindBy(xpath = "//form//div[@class='container']")
-    WebElement firstPage;
     @FindBy (xpath = "//*[contains(text(),\"Продолжить\")]")
     WebElement endRequest;
-
-    //Застрахованные находим на форме
-    @FindBy(xpath = "//INPUT[@id='surname_vzr_ins_0']")
+    @FindBy(name = "insured0_surname")
     WebElement surname_s;
-    @FindBy(xpath = "//INPUT[@id='name_vzr_ins_0']")
+    @FindBy(name = "insured0_name")
     WebElement name_s;
-    @FindBy(xpath = "//INPUT[@id='birthDate_vzr_ins_0']")
+    @FindBy(name = "insured0_birthDate")
     WebElement birthday_s;
-
-
-    //Страхователь находим
-    @FindBy(xpath = "//INPUT[@id='person_lastName']" )
+    @FindBy(name = "surname")
     WebElement surname;
-    @FindBy(xpath = "//INPUT[@id='person_firstName']")
+    @FindBy(name = "name")
     WebElement name;
-    @FindBy(xpath = "//INPUT[@id='person_birthDate']")
+    @FindBy(name = "birthDate")
     WebElement birthDate;
-    @FindBy(xpath = "//INPUT[@id='person_birthDate']")
-    WebElement personBirthDate;
-
-    @FindBy(xpath = "//INPUT[@id='person_middleName']")
+    @FindBy(name = "middlename")
     WebElement middlename;
-
-    @FindBy(xpath = "//div[contains(@class, 'btn-group')]")
-    WebElement gender;
-
-    //Паспорт находим на форме
-
-    @FindBy(xpath = "//INPUT[@id='passportSeries']")
+    @FindBy(name = "passport_series")
     WebElement passport_series;
-    @FindBy(xpath = "//INPUT[@id='passportNumber']")
+    @FindBy(name = "passport_number")
     WebElement passport_number;
-    @FindBy(xpath = "//INPUT[@id='documentDate']")
+    @FindBy(name = "issueDate")
     WebElement issueDate;
-
-    @FindBy(xpath = "//INPUT[@id='documentIssue']")
+    @FindBy(name = "issuePlace")
     WebElement issuePlace;
+    @FindBy(name = "phone")
+    WebElement Phone;
+    @FindBy(name = "email")
+    WebElement Email;
+    @FindBy(name = "emailValid")
+    WebElement EmailValid;
 
     public RequestPage(WebDriver driver) {
         PageFactory.initElements(driver,this);
@@ -89,7 +63,7 @@ public class RequestPage {
     }
 
 
-    public void fillField(String fieldName, String value) throws InterruptedException {
+    public void fillField(String fieldName, String value) {
         switch (fieldName){
             case "фамилия застрахованного":
                 fillField(surname_s, value);
@@ -108,9 +82,8 @@ public class RequestPage {
                 break;
             case "день рождения":
                 fillField(birthDate, value);
-                    break;
+                break;
             case "отчество":
-                middlename.click();
                 fillField(middlename, value);
                 break;
             case "серия паспорта":
@@ -121,20 +94,18 @@ public class RequestPage {
                 break;
             case "дата выдачи":
                 fillField(issueDate, value);
-                issuePlace.click();
                 break;
-
-           case "Кем выдан":
-                issuePlace.click();
+            case "место выдачи":
                 fillField(issuePlace, value);
-               new WebDriverWait(driver, 2, 1000).
-                       until(ExpectedConditions.visibilityOf(issueDate));
-               fillField(issueDate, value);
-               issuePlace.click();
-               fillField(issuePlace, value);
                 break;
-            case "Пол":
-                gender.findElement(By.xpath("//label[contains(text(),'" + value + "')]")).click();
+            case "email":
+                fillField(Email, value);
+                break;
+            case "phone":
+                fillField(Phone, value);
+                break;
+            case "emailValid":
+                fillField(EmailValid, value);
                 break;
             default:
                 throw new AssertionError("Поле '"+fieldName+"' не объявлено на странице");
@@ -176,8 +147,17 @@ public class RequestPage {
             case "дата выдачи":
                 Assert.assertEquals(expected, issueDate.getAttribute("value"));
                 break;
-            case "Кем выдан":
+            case "место выдачи":
                 Assert.assertEquals(expected, issuePlace.getAttribute("value"));
+                break;
+            case "email":
+                Assert.assertEquals(expected, Email.getAttribute("value"));
+                break;
+            case "phone":
+                Assert.assertEquals(expected, Phone.getAttribute("value"));
+                break;
+            case "emailValid":
+                Assert.assertEquals(expected, EmailValid.getAttribute("value"));
                 break;
             default:
                 throw new AssertionError("Поле '"+field+"' не объявлено на странице");

@@ -1,12 +1,9 @@
 package test;
 
-import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import pages.CatalogPage;
-import pages.MainPage;
-import pages.RequestPage;
+import pages.HomePage;
+import pages.RequestPage1;
 import static org.junit.Assert.assertEquals;
 
 
@@ -15,7 +12,7 @@ public class task2 extends BaseTest {
     @Test
     public void newInsuranceTest() throws InterruptedException {
         driver.get(baseUrl + "/");
-        MainPage mainPage = new MainPage(driver);
+        HomePage mainPage = new HomePage(driver);
         mainPage.buttonCookieClose.click();                                                             // Закрытие cookie
         // Главная
         mainPage.selectMainMenu("Страхование");
@@ -24,7 +21,7 @@ public class task2 extends BaseTest {
         CatalogPage insuranceCatalogPage = new CatalogPage(driver);
         assertEquals("Страхование для путешественников", insuranceCatalogPage.titleTravel.getText());
         insuranceCatalogPage.sendButton.click();
-        RequestPage RequestPage = new RequestPage(driver);
+        RequestPage1 RequestPage = new RequestPage1(driver);
 
         /** Страница "Выбор полиса" */
         RequestPage.insuranceSum("Минимальная");

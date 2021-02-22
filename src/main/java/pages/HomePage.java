@@ -5,9 +5,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-public class MainPage extends BasePage {
+public class HomePage extends BasePage {
 
 
     @FindBy(xpath = "//*[text()='Закрыть']")
@@ -19,7 +22,7 @@ public class MainPage extends BasePage {
     @FindBy(xpath = "//li/*[(text()='Страхование')]/..//ul")
     WebElement insuranceMenu;
 
-    public MainPage(WebDriver driver) {
+    public HomePage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
@@ -30,6 +33,9 @@ public class MainPage extends BasePage {
     public void selectInsuranceMenu(String name) {
         insuranceMenu.findElement(By.xpath(".//*[contains(text(),'" + name + "')]")).click();
     }
+
+    public void waitElement(WebElement element) {
+        Wait<WebDriver> wait = new WebDriverWait(driver, 30, 1000);
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
 }
-
-
