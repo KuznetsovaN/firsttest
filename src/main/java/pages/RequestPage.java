@@ -42,12 +42,6 @@ public class RequestPage {
     WebElement issueDate;
     @FindBy(name = "issuePlace")
     WebElement issuePlace;
-    @FindBy(name = "phone")
-    WebElement Phone;
-    @FindBy(name = "email")
-    WebElement Email;
-    @FindBy(name = "emailValid")
-    WebElement EmailValid;
 
     public RequestPage(WebDriver driver) {
         PageFactory.initElements(driver,this);
@@ -98,16 +92,7 @@ public class RequestPage {
             case "место выдачи":
                 fillField(issuePlace, value);
                 break;
-            case "email":
-                fillField(Email, value);
-                break;
-            case "phone":
-                fillField(Phone, value);
-                break;
-            case "emailValid":
-                fillField(EmailValid, value);
-                break;
-            default:
+               default:
                 throw new AssertionError("Поле '"+fieldName+"' не объявлено на странице");
         }
     }
@@ -149,15 +134,6 @@ public class RequestPage {
                 break;
             case "место выдачи":
                 Assert.assertEquals(expected, issuePlace.getAttribute("value"));
-                break;
-            case "email":
-                Assert.assertEquals(expected, Email.getAttribute("value"));
-                break;
-            case "phone":
-                Assert.assertEquals(expected, Phone.getAttribute("value"));
-                break;
-            case "emailValid":
-                Assert.assertEquals(expected, EmailValid.getAttribute("value"));
                 break;
             default:
                 throw new AssertionError("Поле '"+field+"' не объявлено на странице");
