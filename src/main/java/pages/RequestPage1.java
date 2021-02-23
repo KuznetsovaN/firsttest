@@ -101,6 +101,7 @@ public class RequestPage1 {
                 fillField(birthday_s, value);
                 break;
             case "фамилия":
+                surname.click();
                 fillField(surname, value);
                 break;
             case "имя":
@@ -119,21 +120,16 @@ public class RequestPage1 {
                 break;
             case "номер паспорта":
                 fillField(passport_number, value);
-                break;
+                  break;
             case "дата выдачи":
                 fillField(issueDate, value);
-                issuePlace.click();
+                middlename.click();
                 break;
 
-           case "Кем выдан":
+           case "кем выдан":
+               middlename.click();
                 issuePlace.click();
-               issuePlace.click();
                 fillField(issuePlace, value);
-               new WebDriverWait(driver, 2, 1000).
-                       until(ExpectedConditions.visibilityOf(issueDate));
-               fillField(issueDate, value);
-               issuePlace.click();
-               fillField(issuePlace, value);
                 break;
             case "Пол":
                 gender.findElement(By.xpath("//label[contains(text(),'" + value + "')]")).click();
@@ -178,7 +174,7 @@ public class RequestPage1 {
             case "дата выдачи":
                 Assert.assertEquals(expected, issueDate.getAttribute("value"));
                 break;
-            case "Кем выдан":
+            case "кем выдан":
                 Assert.assertEquals(expected, issuePlace.getAttribute("value"));
                 break;
             default:
@@ -196,7 +192,7 @@ public class RequestPage1 {
     }
 
     public void checkZP(){
-        assertEquals("Заполнены не все обязательные поля",
-                driver.findElement(By.xpath("//div [text()='Заполнены не все обязательные поля']")).getText());
+        assertEquals("При заполнении данных произошла ошибка",
+                driver.findElement(By.cssSelector("div.alert-form-error")).getText());;
     }
 }

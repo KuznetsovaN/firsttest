@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,6 +18,7 @@ public class InsuranceForTravelersPage extends BasePage {
     @FindBy(xpath = "//B[@class='kit-button__text'][text()='Оформить онлайн'][text()='Оформить онлайн']")
      WebElement button;
 
+
     public InsuranceForTravelersPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
@@ -29,4 +31,8 @@ public class InsuranceForTravelersPage extends BasePage {
 
 
     }
+
+
+
+
 }

@@ -2,9 +2,11 @@
 
 package steps;
 
+import pages.CatalogPage;
 import pages.MainPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import pages.RequestPage1;
 import ru.yandex.qatools.allure.annotations.Step;
 
 
@@ -15,7 +17,13 @@ public class MainStep {
         new MainPage(BaseStep.getDriver()).selectMainMenu(name);
     }
 
-    @Step ("Выбор вкладкии страхования пушешественников ")
+
+        @Step ("Выбор Перейти в каталог")
+    public void selecttravelInsurance (String name) {
+        new MainPage(BaseStep.getDriver()).selectInsuranceMenu(name);
+    }
+
+    @Step ("Выбор вкладкии страхования для пушешественников ")
     public void travelInsurance (String name) {
         new MainPage(BaseStep.getDriver()).selectInsuranceMenu(name);
     }

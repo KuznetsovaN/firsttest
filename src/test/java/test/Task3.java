@@ -1,5 +1,7 @@
 package test;//Задание 3
 
+import pages.CatalogPage;
+import pages.RequestPage1;
 import steps.BaseStep;
 import steps.MainStep;
 import steps.RequestStep;
@@ -7,6 +9,7 @@ import steps.InsuranceTravelStep;
 import org.junit.Test;
 import java.util.HashMap;
 
+import static org.junit.Assert.assertEquals;
 
 
 public class Task3 extends BaseStep {
@@ -22,14 +25,18 @@ public class Task3 extends BaseStep {
 
         //Переход к вкладке Застраховать себя и имущество-выбор страхования путешественников
         mainStep.selectSection("Страхование");
-        mainStep.waitElement(mainStep.getTravelInsuranceElement("Страхование путешественников"));
-        mainStep.travelInsurance("Страхование путешественников");
+        mainStep.selecttravelInsurance("Перейти в каталог");
+        // Каталог страхования
+
+
+       // mainStep.waitElement(mainStep.getTravelInsuranceElement("Страхование для путешественников"));
+        mainStep.selecttravelInsurance("Страхование для путешественников");
 
 
         //Переход к вкладке Страхования путешественников, проверка на наличие соответствующего окна и переход
         //к новому окну
         //insuranceTravelStep.waitElement(insuranceTravelStep.getTitle());
-        insuranceTravelStep.checkSP("Страхование путешественников");
+
         insuranceTravelStep.changeWindow();
 
 

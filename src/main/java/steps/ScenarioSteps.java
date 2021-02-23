@@ -36,11 +36,6 @@ public class ScenarioSteps {
         mainSteps.waitElement(nameElement);
     }
 
-    //Проверка заголовка
-    @Then("^Проверка на ошибки заголовка \"(.+)\"$")
-    public void stepCheckTitle (String title) {
-        InsuranceSteps.checkSP(title);
-    }
 
     //Переход на новую вкладку
     @Then("^Переход на новую вкладку")

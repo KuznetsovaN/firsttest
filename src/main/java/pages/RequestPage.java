@@ -89,7 +89,7 @@ public class RequestPage {
             case "дата выдачи":
                 fillField(issueDate, value);
                 break;
-            case "место выдачи":
+            case "кем выдан":
                 fillField(issuePlace, value);
                 break;
                default:
@@ -132,7 +132,7 @@ public class RequestPage {
             case "дата выдачи":
                 Assert.assertEquals(expected, issueDate.getAttribute("value"));
                 break;
-            case "место выдачи":
+            case "кем выдан":
                 Assert.assertEquals(expected, issuePlace.getAttribute("value"));
                 break;
             default:
@@ -151,6 +151,7 @@ public class RequestPage {
 
     public void checkZP(){
         assertEquals("Заполнены не все обязательные поля",
-                driver.findElement(By.xpath("//div [text()='Заполнены не все обязательные поля']")).getText());
+                driver.findElement(By.cssSelector("div.alert-form-error")).getText());
     }
+
 }
