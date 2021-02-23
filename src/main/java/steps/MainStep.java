@@ -23,18 +23,23 @@ public class MainStep {
         new MainPage(BaseStep.getDriver()).selectInsuranceMenu(name);
     }
 
-    @Step ("Выбор вкладкии страхования для пушешественников ")
-    public void travelInsurance (String name) {
-        new MainPage(BaseStep.getDriver()).selectInsuranceMenu(name);
-    }
 
-   @Step ("Получения страхования пушешественников")
+    @Step ("Cтрахования пушешественников")
     public WebElement getTravelInsuranceElement (String name) {
-        return new MainPage(BaseStep.getDriver()).getTravelInsuranceElement(name);
+        return new CatalogPage(BaseStep.getDriver()).getTravelInsuranceElement(name);
     }
 
     @Step ("Ожидание")
     public void waitElement (WebElement element) {
         new MainPage(BaseStep.getDriver()).waitElement(element);
     }
+
+    @Step ("Cтрахования пушешественников")
+    public void selecttravelInsurance2 (String name) {
+        new CatalogPage(BaseStep.getDriver()).selecttravelInsurance2(name);
+    }
+
+
+
+
 }

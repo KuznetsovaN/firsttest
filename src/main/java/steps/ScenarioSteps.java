@@ -19,10 +19,10 @@ public class ScenarioSteps {
     public void stepSelectSectionItem(String nameSection) {
         mainSteps.selectSection(nameSection);
     }
-    @When("^Запускается вид страхования: \"(.+)\"$")
-    public void stepSelectTypeInsurance(String typeName){
-        mainSteps.travelInsurance(typeName);
-    }
+ //   @When("^Запускается вид страхования: \"(.+)\"$")
+  //  public void stepSelectTypeInsurance(String typeName){
+    //    mainSteps.travelInsurance(typeName);
+ //   }
     @Then("^Вид страхования: \"(.+)\"$")
     public void stepGetTypeOfInsurance(String typeName){
         mainSteps.waitElement(mainSteps.getTravelInsuranceElement(typeName));

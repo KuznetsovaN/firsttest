@@ -15,8 +15,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class MainPage {
     WebDriver driver;
 
-    @FindBy(xpath = "//div[contains(@class,'bp-area header-container')]")
-    WebElement menu;
 
     @FindBy(xpath = "//*[contains(@class, 'kitt-top-menu__list')]")
     WebElement mainMenu;
@@ -42,9 +40,6 @@ public class MainPage {
         insuranceMenu.findElement(By.xpath(".//*[contains(text(),'" + name + "')]")).click();
     }
 
-    public WebElement getTravelInsuranceElement (String name) {
-        return insuranceMenu.findElement(By.xpath(".//*[contains(text(),'" + name + "')]"));
-    }
 
 
 }

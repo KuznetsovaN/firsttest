@@ -8,15 +8,15 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class InsuranceForTravelersPage extends BasePage {
+import static pages.BasePage.driver;
+
+public class InsuranceForTravelersPage extends  BasePage   {
 
 
+    private final WebDriver driver;
 
-    @FindBy(xpath = "//h3[contains(text(), 'Страхование для путешественников')]")
-     WebElement header;
-
-    @FindBy(xpath = "//B[@class='kit-button__text'][text()='Оформить онлайн'][text()='Оформить онлайн']")
-     WebElement button;
+    @FindBy(xpath = "//h3[contains(text(),'Страхование для путешественников')]/../../..//*[contains(text(),'Оформить онлайн')]")
+    public WebElement button;
 
 
     public InsuranceForTravelersPage(WebDriver driver) {
@@ -31,8 +31,6 @@ public class InsuranceForTravelersPage extends BasePage {
 
 
     }
-
-
 
 
 }

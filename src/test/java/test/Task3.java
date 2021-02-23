@@ -1,5 +1,6 @@
 package test;//Задание 3
 
+import org.openqa.selenium.WebDriver;
 import pages.CatalogPage;
 import pages.RequestPage1;
 import steps.BaseStep;
@@ -10,6 +11,7 @@ import org.junit.Test;
 import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
+import static test.BaseTest.baseUrl;
 
 
 public class Task3 extends BaseStep {
@@ -21,7 +23,7 @@ public class Task3 extends BaseStep {
 
 
     @Test
-    public void task3selenuim(){
+    public void task3(){
 
         //Переход к вкладке Застраховать себя и имущество-выбор страхования путешественников
         mainStep.selectSection("Страхование");
@@ -29,8 +31,13 @@ public class Task3 extends BaseStep {
         // Каталог страхования
 
 
-       // mainStep.waitElement(mainStep.getTravelInsuranceElement("Страхование для путешественников"));
-        mainStep.selecttravelInsurance("Страхование для путешественников");
+      mainStep.waitElement(mainStep.getTravelInsuranceElement("Страхование для путешественников"));
+       mainStep.selecttravelInsurance2("Страхование для путешественников");
+
+        // Каталог страхования
+
+
+
 
 
         //Переход к вкладке Страхования путешественников, проверка на наличие соответствующего окна и переход
