@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-public class HomePage extends BasePage {
+public class HomePage extends SberBasePage {
 
 
     @FindBy(xpath = "//*[text()='Закрыть']")

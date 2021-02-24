@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static pages.BasePage.driver;
+//import static pages.SberBasePage.driver;
 
 public class CatalogPage {
 
@@ -19,18 +19,10 @@ public class CatalogPage {
     @FindBy(xpath = "//h3[contains(text(),'Страхование для путешественников')]/../../..//*[contains(text(),'Оформить онлайн')]")
     public WebElement sendButton;
 
-    @FindBy(xpath = "(//B[@class='kit-button__text'][text()='Оформить онлайн'][text()='Оформить онлайн']")
-    public WebElement sendButton2;
-
-
-    public void selecttravelInsurance2(String name) {
-        titleTravel.findElement(By.xpath("//B[@class='kit-button__text'][text()='Оформить онлайн'][text()='Оформить онлайн']")).click();
-   }
-
-
-    public WebElement getTravelInsuranceElement (String name) {
-        return titleTravel.findElement(By.xpath("//H3[@class='uc-full__header'][text()='Страхование для путешественников']"));
+    public void selecttravelInsurance(String name) {
+        titleTravel.findElement(By.xpath("//H3[@class='uc-full__header'][text()='Страхование для путешественников']")).click();
     }
+
 
     public CatalogPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -40,6 +32,4 @@ public class CatalogPage {
 
 
 
-
 }
-

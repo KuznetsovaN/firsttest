@@ -109,7 +109,7 @@ public class RequestPage1 {
                 break;
             case "день рождения":
                 fillField(birthDate, value);
-                    break;
+                break;
             case "отчество":
                 middlename.click();
                 fillField(middlename, value);
@@ -120,14 +120,14 @@ public class RequestPage1 {
                 break;
             case "номер паспорта":
                 fillField(passport_number, value);
-                  break;
+                break;
             case "дата выдачи":
                 fillField(issueDate, value);
                 middlename.click();
                 break;
 
-           case "кем выдан":
-               middlename.click();
+            case "кем выдан":
+                middlename.click();
                 issuePlace.click();
                 fillField(issuePlace, value);
                 break;
