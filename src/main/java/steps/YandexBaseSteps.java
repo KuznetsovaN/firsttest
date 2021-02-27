@@ -17,13 +17,13 @@ public class YandexBaseSteps {
     }
 
     protected static WebDriver driver;
-    protected static String baseUrl;
+    protected static String yandexUrl;
 
     // переменная для считывания properties
     public static Properties properties = TestProperties.getInstance().getProperties();
 
     //@BeforeClass заменяем аннотацию Junit на аннотацию CUCUMBER, потому что с аннотацией Junit CUCUMBER не может работать
-    @Before
+    @Before("@2,@3")
     public static void SetUp() throws Exception {
         // из файла properties считываем переменную browser для уточнения, какой использовать браузер
         switch (properties.getProperty("browser")) {
@@ -43,14 +43,15 @@ public class YandexBaseSteps {
                 driver = new ChromeDriver();
         }
         // записываем значения в переменные ссылок
-        baseUrl = properties.getProperty("url");
+        yandexUrl = properties.getProperty("yandex.url");
+        System.out.println("Ссылка на Яндекс" + yandexUrl);
         driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-        driver.get(baseUrl);
+        driver.get(yandexUrl);
     }
 
     //@AfterClass заменяем аннотацию Junit на аннотацию CUCUMBER, потому что с аннотацией Junit CUCUMBER не может работать
-    @After
+    @After("@2,@3")
     public static void tearDown() throws Exception {
         driver.quit();
     }

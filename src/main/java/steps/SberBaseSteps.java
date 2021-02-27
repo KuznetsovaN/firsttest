@@ -3,6 +3,7 @@ import java.util.Properties;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import org.junit.Ignore;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -16,13 +17,13 @@ public class SberBaseSteps {
         return driver;
     }
     protected static WebDriver driver;
-    protected static String TravelInsuranceUrl;
+    protected static String sberUrl;
     // переменная для считывания properties
     public static Properties properties = TestProperties.getInstance().getProperties();
 
 
     //@BeforeClass заменяем аннотацию Junit на аннотацию CUCUMBER, потому что с аннотацией Junit CUCUMBER не может работать
-    @Before
+    @Before("@1")
     public static void SetUp() throws Exception {
         // из файла properties считываем переменную browser для уточнения, какой использовать браузер
         switch (properties.getProperty("browser")) {
@@ -43,15 +44,15 @@ public class SberBaseSteps {
         }
 
         // записываем значения в переменные ссылок
-        TravelInsuranceUrl = properties.getProperty("app.url");
-        System.out.println("Ссылка на вебстраницу для тестов СберСтрах " + TravelInsuranceUrl);
+        sberUrl = properties.getProperty("sber.url");
+        System.out.println("Ссылка на вебстраницу для тестов СберСтрах " + sberUrl);
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-        driver.get(TravelInsuranceUrl);
+        driver.get(sberUrl);
     }
 
     //@AfterClass заменяем аннотацию Junit на аннотацию CUCUMBER, потому что с аннотацией Junit CUCUMBER не может работать
-    @After
+    @After("@1")
     public static void tearDown() throws Exception {
         driver.quit();
     }

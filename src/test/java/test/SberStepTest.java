@@ -37,7 +37,7 @@ public class SberStepTest extends SberBaseSteps {
         testData3.put("Кем выдан", "МВД Азатот");
 
         // Перейти на страницу http://www.sberbank.ru/ru/person
-        driver.get(TravelInsuranceUrl);
+        driver.get(sberUrl);
 
         // Нажать на – Страхование
         sberMainPageSteps.selectInsuranceBottomMenu();
@@ -87,7 +87,7 @@ public class SberStepTest extends SberBaseSteps {
         testData3.put("Кем выдан", "МВД Азатот");
 
         // Перейти на страницу http://www.sberbank.ru/ru/person
-        driver.get(TravelInsuranceUrl);
+        driver.get(sberUrl);
 
         // Нажать на – Страхование
         sberMainPageSteps.selectInsuranceBottomMenu();

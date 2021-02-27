@@ -1,4 +1,4 @@
-package test;
+/**package test;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -40,8 +40,8 @@ public class BaseTest {
         }
 
         // записываем значения в переменные ссылок
-        baseUrl = properties.getProperty("baseUrl");
-        TravelInsuranceUrl = properties.getProperty("TravelInsuranceUrl");
+        baseUrl = properties.getProperty("ya.url");
+        TravelInsuranceUrl = properties.getProperty("app.url");
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get(TravelInsuranceUrl);
@@ -60,3 +60,4 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
     }
 }
+*/

@@ -1,9 +1,6 @@
 package test;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 
 public class SberTest {
     WebDriver driver;
-    String baseURL;
+    String TravelInsuranceUrl;
 
     @Before
     public void befoTest() {
@@ -27,13 +24,13 @@ public class SberTest {
         driver = new ChromeDriver();//инициализируем переменную driver
 
 //1. Перейти на страницу http://www.sberbank.ru/ru/person
-        baseURL="http://www.sberbank.ru/ru/person";
+        TravelInsuranceUrl="http://www.sberbank.ru/ru/person";
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.manage().window().maximize();//разворачивает окно на весь экран
-        driver.get(baseURL);
+        driver.get(TravelInsuranceUrl);
     }
-
+    @Ignore
     @Test
     public void autoTestInsurance() throws InterruptedException {
 

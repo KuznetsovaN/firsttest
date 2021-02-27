@@ -26,7 +26,7 @@ public class YandexStepTest extends YandexBaseSteps {
 
 //        Сценарий №1
 // 1. Зайти на yandex.ru.
-        driver.get(baseUrl);
+        driver.get(yandexUrl );
 //        2. Перейти в яндекс маркет
         yandexMainPageSteps.selectService("Маркет");
         yandexBasePage.switchToWindow(1);
@@ -56,7 +56,7 @@ public class YandexStepTest extends YandexBaseSteps {
 
 //        Сценарий №2
 // 1. Зайти на yandex.ru.
-        driver.get(baseUrl);
+        driver.get(yandexUrl );
 //        2. Перейти в яндекс маркет
         yandexMainPageSteps.selectService("Маркет");
         yandexBasePage.switchToWindow(1);

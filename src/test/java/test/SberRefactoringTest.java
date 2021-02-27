@@ -1,17 +1,20 @@
 package test;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import pages.CatalogPage;
 import pages.HomePage;
 import pages.RequestPage1;
+import steps.SberBaseSteps;
+
 import static org.junit.Assert.assertEquals;
 
 
-public class SberRefactoringTest extends BaseTest {
-
+public class SberRefactoringTest extends SberBaseSteps {
+    @Ignore
     @Test
     public void newInsuranceTest() throws InterruptedException {
-        driver.get(TravelInsuranceUrl);
+        driver.get(sberUrl);
         HomePage mainPage = new HomePage(driver);
         mainPage.buttonCookieClose.click();                                                             // Закрытие cookie
         // Главная
