@@ -10,17 +10,17 @@ public class TestProperties {
 
     private static TestProperties INSTANCE = null;
 
-    private TestProperties() {
-        System.setProperty("environment", "application");
+    //Загрузка environment.properties
+    private TestProperties(){
         try {
-            properties.load(new FileInputStream(new File("C:\\Users\\Welest\\IdeaProjects\\javaSlenium\\environment.properties")));
+            properties.load(new FileInputStream(new File("environment.properties").getAbsolutePath()));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public static TestProperties getInstance() {
-        if (INSTANCE == null) {
+        if (INSTANCE == null){
             INSTANCE = new TestProperties();
         }
         return INSTANCE;

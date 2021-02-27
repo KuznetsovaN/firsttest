@@ -35,4 +35,11 @@ public class YandexMarketPageSteps {
         new YandexMarketPage().checkSearchedArticleTitle(title);
     }
 
+    @Step("Ожидание {0}")
+    public void waitSubWrapMenuElement(String subWrapMenuName) {
+        new YandexMarketPage().waitSubWrapMenuElement(subWrapMenuName);
+    }
+
+
+
 }

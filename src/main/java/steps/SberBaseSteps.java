@@ -43,7 +43,7 @@ public class SberBaseSteps {
         }
 
         // записываем значения в переменные ссылок
-        TravelInsuranceUrl = properties.getProperty("TravelInsuranceUrl");
+        TravelInsuranceUrl = properties.getProperty("app.url");
         System.out.println("Ссылка на вебстраницу для тестов СберСтрах " + TravelInsuranceUrl);
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         driver.manage().window().maximize();

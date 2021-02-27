@@ -17,7 +17,7 @@ public class YandexBaseSteps {
     }
 
     protected static WebDriver driver;
-    protected static String startPage;
+    protected static String baseUrl;
 
     // переменная для считывания properties
     public static Properties properties = TestProperties.getInstance().getProperties();
@@ -43,10 +43,10 @@ public class YandexBaseSteps {
                 driver = new ChromeDriver();
         }
         // записываем значения в переменные ссылок
-        startPage = properties.getProperty("startPage");
+        baseUrl = properties.getProperty("url");
         driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-        driver.get(startPage);
+        driver.get(baseUrl);
     }
 
     //@AfterClass заменяем аннотацию Junit на аннотацию CUCUMBER, потому что с аннотацией Junit CUCUMBER не может работать

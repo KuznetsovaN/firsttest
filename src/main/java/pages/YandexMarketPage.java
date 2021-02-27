@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -36,6 +37,9 @@ public class YandexMarketPage extends YandexBasePage {
 
     @FindBy(xpath = "//span[text()='Электроника']")
     WebElement electronicsSection;
+
+    @FindBy(xpath = "//div[@class = \"topmenu__subwrap\"]")
+    WebElement topMenuSubWrap;
 
     Wait<WebDriver> wait = new WebDriverWait(driver, 20, 1000);
 
@@ -82,6 +86,12 @@ public class YandexMarketPage extends YandexBasePage {
         assertEquals("Найденный товар (" + result + ") не соответсвует первому товару из списка, полученного с использованием фильтра (" + expected + ")", expected, result);
     }
 
+
+    public void waitSubWrapMenuElement(String subWrapName) {
+        WebDriverWait wait = new WebDriverWait(YandexBaseSteps.getDriver(), 10);
+        wait.until(ExpectedConditions.visibilityOf
+                (topMenuSubWrap.findElement(By.xpath("//a[text()='" + subWrapName + "']"))));
+    }
 
     public void checkArticlesFilterResults(int expected) {
         YandexBaseSteps.getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
