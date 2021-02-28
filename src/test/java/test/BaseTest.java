@@ -1,4 +1,4 @@
-/**package test;
+package test;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -60,4 +60,3 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
     }
 }
-*/

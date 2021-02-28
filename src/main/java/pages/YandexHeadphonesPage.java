@@ -17,7 +17,7 @@ public class YandexHeadphonesPage extends YandexBasePage {
     @FindBy(xpath = "//input[@type='checkbox'][contains(@name,'Производитель Beats')]/parent::*/div")
     WebElement BeatsCheckBox;
 
-    Wait<WebDriver> wait = new WebDriverWait(driver, 20, 1000);
+    Wait<WebDriver> wait = new WebDriverWait(driver, 20, 2000);
 
     public YandexHeadphonesPage() {
         PageFactory.initElements(YandexBaseSteps.getDriver(), this);
